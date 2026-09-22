@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.bibliotech.fine.controller.FineControllerTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.202 s -- in com.bibliotech.fine.controller.FineControllerTest

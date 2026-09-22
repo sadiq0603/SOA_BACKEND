@@ -1,0 +1,97 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-09-20T10:42:20.783+05:30  INFO 7908 --- [fine-service] [           main] c.b.fine.FineServiceApplication          : Starting FineServiceApplication v1.0.0 using Java 21.0.9 with PID 7908 (C:\Users\venka\Downloads\backend SOA project Zips\fine-service\target\fine-service-1.0.0.jar started by venka in C:\Users\venka\Downloads\backend SOA project Zips\fine-service\target)
+2026-09-20T10:42:20.799+05:30  INFO 7908 --- [fine-service] [           main] c.b.fine.FineServiceApplication          : No active profile set, falling back to 1 default profile: "default"
+2026-09-20T10:42:27.912+05:30  INFO 7908 --- [fine-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-20T10:42:28.588+05:30  INFO 7908 --- [fine-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 646 ms. Found 1 JPA repository interface.
+2026-09-20T10:42:29.904+05:30  INFO 7908 --- [fine-service] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=4d1d8ee9-79ec-3dc8-8db0-0133bde7605b
+2026-09-20T10:42:32.187+05:30  WARN 7908 --- [fine-service] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-09-20T10:42:32.203+05:30  WARN 7908 --- [fine-service] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2026-09-20T10:42:36.013+05:30  INFO 7908 --- [fine-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2026-09-20T10:42:36.145+05:30  INFO 7908 --- [fine-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-20T10:42:36.149+05:30  INFO 7908 --- [fine-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-09-20T10:42:36.652+05:30  INFO 7908 --- [fine-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-09-20T10:42:36.661+05:30  INFO 7908 --- [fine-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 15308 ms
+2026-09-20T10:42:44.508+05:30  INFO 7908 --- [fine-service] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-09-20T10:42:44.799+05:30  INFO 7908 --- [fine-service] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-09-20T10:42:44.934+05:30  INFO 7908 --- [fine-service] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-09-20T10:42:45.852+05:30  INFO 7908 --- [fine-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-20T10:42:45.961+05:30  INFO 7908 --- [fine-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-20T10:42:46.951+05:30  INFO 7908 --- [fine-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4db568e1
+2026-09-20T10:42:46.955+05:30  INFO 7908 --- [fine-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-20T10:42:47.088+05:30  WARN 7908 --- [fine-service] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-09-20T10:42:50.830+05:30  INFO 7908 --- [fine-service] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-20T10:42:51.290+05:30  INFO 7908 --- [fine-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-20T10:43:00.336+05:30  INFO 7908 --- [fine-service] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-09-20T10:43:00.938+05:30  WARN 7908 --- [fine-service] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-09-20T10:43:01.003+05:30  INFO 7908 --- [fine-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2026-09-20T10:43:01.322+05:30  INFO 7908 --- [fine-service] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-09-20T10:43:01.927+05:30  INFO 7908 --- [fine-service] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-09-20T10:43:01.951+05:30  INFO 7908 --- [fine-service] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T10:43:02.098+05:30  INFO 7908 --- [fine-service] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-09-20T10:43:02.103+05:30  INFO 7908 --- [fine-service] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-09-20T10:43:02.103+05:30  INFO 7908 --- [fine-service] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-09-20T10:43:02.103+05:30  INFO 7908 --- [fine-service] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-09-20T10:43:02.104+05:30  INFO 7908 --- [fine-service] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-09-20T10:43:02.104+05:30  INFO 7908 --- [fine-service] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-09-20T10:43:02.105+05:30  INFO 7908 --- [fine-service] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-09-20T10:43:05.454+05:30  INFO 7908 --- [fine-service] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-09-20T10:43:05.468+05:30  INFO 7908 --- [fine-service] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-09-20T10:43:05.474+05:30  INFO 7908 --- [fine-service] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-09-20T10:43:05.503+05:30  INFO 7908 --- [fine-service] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1789881185497 with initial instances count: 3
+2026-09-20T10:43:05.606+05:30  INFO 7908 --- [fine-service] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application FINE-SERVICE with eureka with status UP
+2026-09-20T10:43:05.616+05:30  INFO 7908 --- [fine-service] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1789881185616, current=UP, previous=STARTING]
+2026-09-20T10:43:05.630+05:30  INFO 7908 --- [fine-service] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_FINE-SERVICE/host.docker.internal:fine-service:8083: registering service...
+2026-09-20T10:43:05.739+05:30  INFO 7908 --- [fine-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path ''
+2026-09-20T10:43:05.746+05:30  INFO 7908 --- [fine-service] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8083
+2026-09-20T10:43:05.831+05:30  INFO 7908 --- [fine-service] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_FINE-SERVICE/host.docker.internal:fine-service:8083 - registration status: 204
+2026-09-20T10:43:05.843+05:30  INFO 7908 --- [fine-service] [           main] c.b.fine.FineServiceApplication          : Started FineServiceApplication in 46.504 seconds (process running for 49.251)
+2026-09-20T10:43:18.176+05:30  INFO 7908 --- [fine-service] [nio-8083-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-20T10:43:18.178+05:30  INFO 7908 --- [fine-service] [nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-20T10:43:18.186+05:30  INFO 7908 --- [fine-service] [nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2026-09-20T11:08:15.180+05:30  WARN 7908 --- [fine-service] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=24m3s783ms328µs500ns).
+2026-09-20T11:11:30.094+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T11:16:30.119+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T11:21:30.136+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T11:26:30.156+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T11:31:30.174+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T11:36:30.184+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T11:41:30.199+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T11:42:56.348+05:30  INFO 7908 --- [fine-service] [nio-8083-exec-7] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x07H0x010x000x07D0x030x030x900x14w0x8dY0x8cM0xc60xbf0xb30xf00xba0xf80x170xac0xf50xb99?Y60x1fv0xb00xfeb0xb40xd76Y0xf00xd5 ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2026-09-20T11:46:30.223+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T11:51:30.255+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T11:56:30.279+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:01:30.293+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:06:30.318+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:11:30.330+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:16:30.357+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:21:30.382+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:26:30.400+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:31:30.416+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:36:30.446+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:41:30.463+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:46:30.477+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:51:30.489+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:56:30.516+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T13:01:30.567+05:30  INFO 7908 --- [fine-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

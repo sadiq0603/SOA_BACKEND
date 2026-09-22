@@ -1,0 +1,65 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins:
+              - http://localhost:5174
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders:
+              - '*'
+            allowCredentials: true
+
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+      routes:
+
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/auth/**,/api/users/**
+
+        - id: book-service
+          uri: lb://book-service
+          predicates:
+            - Path=/api/books/**,/api/branches/**
+
+        - id: rental-service
+          uri: lb://rental-service
+          predicates:
+            - Path=/api/rentals/**,/api/reservations/**,/api/notifications/**
+
+        - id: fine-service
+          uri: lb://fine-service
+          predicates:
+            - Path=/api/fines/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${EUREKA_HOST:localhost}:8761/eureka/
+
+  instance:
+    prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway

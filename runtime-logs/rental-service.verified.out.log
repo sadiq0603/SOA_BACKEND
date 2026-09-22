@@ -1,0 +1,106 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-09-20T10:42:20.863+05:30  INFO 18536 --- [rental-service] [           main] c.b.rental.RentalServiceApplication      : Starting RentalServiceApplication v1.0.0 using Java 21.0.9 with PID 18536 (C:\Users\venka\Downloads\backend SOA project Zips\rental-service\target\rental-service-1.0.0.jar started by venka in C:\Users\venka\Downloads\backend SOA project Zips\rental-service\target)
+2026-09-20T10:42:20.870+05:30  INFO 18536 --- [rental-service] [           main] c.b.rental.RentalServiceApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-09-20T10:42:28.811+05:30  INFO 18536 --- [rental-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-20T10:42:29.759+05:30  INFO 18536 --- [rental-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 912 ms. Found 3 JPA repository interfaces.
+2026-09-20T10:42:31.976+05:30  INFO 18536 --- [rental-service] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=f244865b-1c29-3aa7-94ab-2ee38d52fe11
+2026-09-20T10:42:36.722+05:30  WARN 18536 --- [rental-service] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-09-20T10:42:36.851+05:30  WARN 18536 --- [rental-service] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2026-09-20T10:42:44.152+05:30  INFO 18536 --- [rental-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2026-09-20T10:42:44.199+05:30  INFO 18536 --- [rental-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-20T10:42:44.199+05:30  INFO 18536 --- [rental-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-09-20T10:42:44.388+05:30  INFO 18536 --- [rental-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-09-20T10:42:44.397+05:30  INFO 18536 --- [rental-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 22996 ms
+2026-09-20T10:42:46.198+05:30  INFO 18536 --- [rental-service] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-09-20T10:42:46.362+05:30  INFO 18536 --- [rental-service] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-09-20T10:42:46.605+05:30  INFO 18536 --- [rental-service] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-09-20T10:42:48.037+05:30  INFO 18536 --- [rental-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-20T10:42:48.172+05:30  INFO 18536 --- [rental-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-20T10:42:49.014+05:30  INFO 18536 --- [rental-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@450f0d89
+2026-09-20T10:42:49.019+05:30  INFO 18536 --- [rental-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-20T10:42:49.138+05:30  WARN 18536 --- [rental-service] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-09-20T10:42:53.038+05:30  INFO 18536 --- [rental-service] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-20T10:42:53.467+05:30  INFO 18536 --- [rental-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-20T10:42:59.770+05:30  WARN 18536 --- [rental-service] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-20T10:43:00.900+05:30  INFO 18536 --- [rental-service] [           main] o.s.c.openfeign.FeignClientFactoryBean   : For 'book-service' URL not provided. Will try picking an instance via load-balancing.
+2026-09-20T10:43:01.354+05:30  INFO 18536 --- [rental-service] [           main] o.s.c.openfeign.FeignClientFactoryBean   : For 'fine-service' URL not provided. Will try picking an instance via load-balancing.
+2026-09-20T10:43:08.770+05:30  INFO 18536 --- [rental-service] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-09-20T10:43:09.023+05:30  WARN 18536 --- [rental-service] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-09-20T10:43:09.101+05:30  INFO 18536 --- [rental-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2026-09-20T10:43:09.388+05:30  INFO 18536 --- [rental-service] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-09-20T10:43:09.719+05:30  INFO 18536 --- [rental-service] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-09-20T10:43:09.734+05:30  INFO 18536 --- [rental-service] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T10:43:09.818+05:30  INFO 18536 --- [rental-service] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-09-20T10:43:09.819+05:30  INFO 18536 --- [rental-service] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-09-20T10:43:09.819+05:30  INFO 18536 --- [rental-service] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-09-20T10:43:09.820+05:30  INFO 18536 --- [rental-service] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-09-20T10:43:09.820+05:30  INFO 18536 --- [rental-service] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-09-20T10:43:09.821+05:30  INFO 18536 --- [rental-service] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-09-20T10:43:09.821+05:30  INFO 18536 --- [rental-service] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-09-20T10:43:11.050+05:30  INFO 18536 --- [rental-service] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-09-20T10:43:11.061+05:30  INFO 18536 --- [rental-service] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-09-20T10:43:11.071+05:30  INFO 18536 --- [rental-service] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-09-20T10:43:11.084+05:30  INFO 18536 --- [rental-service] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1789881191083 with initial instances count: 3
+2026-09-20T10:43:11.128+05:30  INFO 18536 --- [rental-service] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application RENTAL-SERVICE with eureka with status UP
+2026-09-20T10:43:11.137+05:30  INFO 18536 --- [rental-service] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1789881191136, current=UP, previous=STARTING]
+2026-09-20T10:43:11.155+05:30  INFO 18536 --- [rental-service] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_RENTAL-SERVICE/host.docker.internal:rental-service:8082: registering service...
+2026-09-20T10:43:11.239+05:30  INFO 18536 --- [rental-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path ''
+2026-09-20T10:43:11.242+05:30  INFO 18536 --- [rental-service] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8082
+2026-09-20T10:43:11.339+05:30  INFO 18536 --- [rental-service] [           main] c.b.rental.RentalServiceApplication      : Started RentalServiceApplication in 52.026 seconds (process running for 54.877)
+2026-09-20T10:43:11.343+05:30  INFO 18536 --- [rental-service] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_RENTAL-SERVICE/host.docker.internal:rental-service:8082 - registration status: 204
+2026-09-20T10:43:11.356+05:30  INFO 18536 --- [rental-service] [   scheduling-1] c.b.rental.service.OverdueScheduler      : Running overdue book check...
+2026-09-20T10:43:11.851+05:30  INFO 18536 --- [rental-service] [   scheduling-1] c.b.rental.service.OverdueScheduler      : Overdue check completed. Found 0 overdue, 0 due tomorrow.
+2026-09-20T10:43:17.858+05:30  INFO 18536 --- [rental-service] [nio-8082-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-20T10:43:17.861+05:30  INFO 18536 --- [rental-service] [nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-20T10:43:17.868+05:30  INFO 18536 --- [rental-service] [nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2026-09-20T11:08:17.977+05:30  WARN 18536 --- [rental-service] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=24m3s851ms256µs500ns).
+2026-09-20T11:11:37.739+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T11:16:37.770+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T11:21:37.789+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T11:26:37.809+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T11:31:37.827+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T11:36:37.843+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T11:41:37.856+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T11:42:59.710+05:30  INFO 18536 --- [rental-service] [nio-8082-exec-1] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x07H0x010x000x07D0x030x030xd30xb90xa10x070x8c0xa30xf00xadO0x020x8c0xb20xca0xc40x18/0xf20x0f0xe90x0b0xcf0xedv'0xe80xef#0xf1D0xbd0xb90xfd ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2026-09-20T11:46:37.907+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T11:51:37.942+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T11:56:37.977+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:01:37.994+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:06:38.025+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:06:39.260+05:30  INFO 18536 --- [rental-service] [   scheduling-1] c.b.rental.service.OverdueScheduler      : Running overdue book check...
+2026-09-20T12:06:39.441+05:30  INFO 18536 --- [rental-service] [   scheduling-1] c.b.rental.service.OverdueScheduler      : Overdue check completed. Found 0 overdue, 0 due tomorrow.
+2026-09-20T12:11:38.110+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:16:38.145+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:21:38.172+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:26:38.191+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:31:38.213+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:36:38.328+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:41:38.347+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:43:05.493+05:30  INFO 18536 --- [rental-service] [   scheduling-1] c.b.rental.service.OverdueScheduler      : Running overdue book check...
+2026-09-20T12:43:05.622+05:30  INFO 18536 --- [rental-service] [   scheduling-1] c.b.rental.service.OverdueScheduler      : Overdue check completed. Found 0 overdue, 0 due tomorrow.
+2026-09-20T12:46:38.358+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:51:38.400+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T12:56:38.438+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-09-20T13:01:38.510+05:30  INFO 18536 --- [rental-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

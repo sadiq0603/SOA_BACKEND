@@ -1,0 +1,5 @@
+# Created at 2026-09-12T16:22:46.019
+Boot Manifest-JAR contains absolute paths in classpath 'D:\SOA Project\Library-management-system\bibliotech\fine-service\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+
