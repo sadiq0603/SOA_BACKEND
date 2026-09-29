@@ -84,8 +84,12 @@ public class RentalService {
         Rental rental = rentalRepository.findById(rentalId)
                 .orElseThrow(() -> new RentalNotFoundException("Rental not found with id: " + rentalId));
 
+        if (!rental.getUserId().equals(userId)) {
+            throw new ServiceUnavailableException("Not authorized to return this rental.");
+        }
+
         if (rental.getStatus() == RentalStatus.RETURNED) {
-            throw new RuntimeException("Book has already been returned.");
+            throw new DuplicateRentalException("Book has already been returned.");
         }
 
         LocalDate returnDate = LocalDate.now();
@@ -109,7 +113,7 @@ public class RentalService {
                 fineServiceClient.calculateFine(fineRequest);
 
                 createNotification(userId, "Fine Generated",
-                        "A fine of ₹" + (daysLate * 5) + " has been generated for late return.",
+                        "A fine of Rs. " + (daysLate * 5) + " has been generated for late return.",
                         NotificationType.FINE_GENERATED);
             } catch (Exception e) {
                 log.error("Failed to calculate fine: {}", e.getMessage());

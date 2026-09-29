@@ -20,19 +20,32 @@ public class ReservationController {
     
 
     @PostMapping
-    public ResponseEntity<ReservationResponse> createReservation(@RequestBody Map<String, Long> request) {
+    public ResponseEntity<ReservationResponse> createReservation(
+            @RequestBody Map<String, Long> request,
+            @RequestHeader(value = "X-User-Id", required = false) Long headerUserId) {
+        Long userId = request.containsKey("userId") && request.get("userId") != null
+                ? request.get("userId")
+                : headerUserId;
+        Long bookId = request.get("bookId");
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(reservationService.createReservation(request.get("userId"), request.get("bookId")));
+                .body(reservationService.createReservation(userId, bookId));
     }
 
     @GetMapping("/my")
-    public ResponseEntity<List<ReservationResponse>> getMyReservations(@RequestParam Long userId) {
-        return ResponseEntity.ok(reservationService.getMyReservations(userId));
+    public ResponseEntity<List<ReservationResponse>> getMyReservations(
+            @RequestParam(required = false) Long userId,
+            @RequestHeader(value = "X-User-Id", required = false) Long headerUserId) {
+        Long effectiveUserId = userId != null ? userId : headerUserId;
+        return ResponseEntity.ok(reservationService.getMyReservations(effectiveUserId));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> cancelReservation(@PathVariable Long id, @RequestParam Long userId) {
-        reservationService.cancelReservation(id, userId);
+    public ResponseEntity<Void> cancelReservation(
+            @PathVariable Long id,
+            @RequestParam(required = false) Long userId,
+            @RequestHeader(value = "X-User-Id", required = false) Long headerUserId) {
+        Long effectiveUserId = userId != null ? userId : headerUserId;
+        reservationService.cancelReservation(id, effectiveUserId);
         return ResponseEntity.noContent().build();
     }
 }

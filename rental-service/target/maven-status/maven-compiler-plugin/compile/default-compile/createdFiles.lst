@@ -11,7 +11,6 @@ com\bibliotech\rental\dto\FineRequest.class
 com\bibliotech\rental\dto\BookDto$BookDtoBuilder.class
 com\bibliotech\rental\dto\ReservationResponse.class
 com\bibliotech\rental\exception\GlobalExceptionHandler.class
-com\bibliotech\rental\config\WebConfig.class
 com\bibliotech\rental\RentalServiceApplication.class
 com\bibliotech\rental\dto\RentalResponse.class
 com\bibliotech\rental\dto\NotificationResponse$NotificationResponseBuilder.class

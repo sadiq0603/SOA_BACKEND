@@ -23,11 +23,13 @@ public class RentalController {
 
     @PostMapping("/borrow")
     public ResponseEntity<RentalResponse> borrowBook(
-            @RequestBody BorrowRequest request) {
+            @RequestBody BorrowRequest request,
+            @RequestHeader(value = "X-User-Id", required = false) Long headerUserId) {
 
+        Long effectiveUserId = request.getUserId() != null ? request.getUserId() : headerUserId;
         RentalResponse response =
                 rentalService.borrowBook(
-                        request.getUserId(),
+                        effectiveUserId,
                         request.getBookId()
                 );
 
@@ -43,10 +45,12 @@ public class RentalController {
     @PostMapping("/{id}/return")
     public ResponseEntity<RentalResponse> returnBook(
             @PathVariable Long id,
-            @RequestParam Long userId) {
+            @RequestParam(required = false) Long userId,
+            @RequestHeader(value = "X-User-Id", required = false) Long headerUserId) {
 
+        Long effectiveUserId = userId != null ? userId : headerUserId;
         RentalResponse response =
-                rentalService.returnBook(id, userId);
+                rentalService.returnBook(id, effectiveUserId);
 
         return ResponseEntity.ok(response);
     }
@@ -57,10 +61,12 @@ public class RentalController {
 
     @GetMapping("/my")
     public ResponseEntity<List<RentalResponse>> getMyRentals(
-            @RequestParam Long userId) {
+            @RequestParam(required = false) Long userId,
+            @RequestHeader(value = "X-User-Id", required = false) Long headerUserId) {
 
+        Long effectiveUserId = userId != null ? userId : headerUserId;
         return ResponseEntity.ok(
-                rentalService.getMyRentals(userId)
+                rentalService.getMyRentals(effectiveUserId)
         );
     }
 

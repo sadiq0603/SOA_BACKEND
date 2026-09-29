@@ -1,6 +1,5 @@
 com\bibliotech\fine\entity\Fine.class
 com\bibliotech\fine\service\FineService.class
-com\bibliotech\fine\config\WebConfig.class
 com\bibliotech\fine\FineServiceApplication.class
 com\bibliotech\fine\repository\FineRepository.class
 com\bibliotech\fine\entity\FineStatus.class

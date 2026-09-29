@@ -10,9 +10,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -22,37 +24,44 @@ public class OverdueScheduler {
     private final RentalRepository rentalRepository;
     private final NotificationRepository notificationRepository;
 
-    @Scheduled(fixedRate = 3600000) // Every hour
+    // Runs once per day at midnight to avoid duplicate notifications
+    @Scheduled(cron = "0 0 0 * * *")
+    @Transactional
     public void checkOverdueBooks() {
         log.info("Running overdue book check...");
         LocalDate today = LocalDate.now();
 
+        // Mark overdue rentals and batch-save notifications
         List<Rental> overdueRentals = rentalRepository.findByDueDateBeforeAndStatus(today, RentalStatus.ISSUED);
-        for (Rental rental : overdueRentals) {
-            rental.setStatus(RentalStatus.OVERDUE);
-            rentalRepository.save(rental);
+        if (!overdueRentals.isEmpty()) {
+            overdueRentals.forEach(rental -> rental.setStatus(RentalStatus.OVERDUE));
+            rentalRepository.saveAll(overdueRentals);
 
-            Notification notification = Notification.builder()
-                    .userId(rental.getUserId())
-                    .title("Book Overdue")
-                    .message("Your borrowed book is overdue. Please return it as soon as possible.")
-                    .type(NotificationType.OVERDUE)
-                    .read(false)
-                    .build();
-            notificationRepository.save(notification);
+            List<Notification> overdueNotifications = overdueRentals.stream()
+                    .map(rental -> Notification.builder()
+                            .userId(rental.getUserId())
+                            .title("Book Overdue")
+                            .message("Your borrowed book (ID: " + rental.getBookId() + ") is overdue. Please return it as soon as possible.")
+                            .type(NotificationType.OVERDUE)
+                            .read(false)
+                            .build())
+                    .collect(Collectors.toList());
+            notificationRepository.saveAll(overdueNotifications);
         }
 
-        // Due tomorrow notifications
+        // Due tomorrow notifications — batch save
         List<Rental> dueTomorrow = rentalRepository.findByDueDateAndStatus(today.plusDays(1), RentalStatus.ISSUED);
-        for (Rental rental : dueTomorrow) {
-            Notification notification = Notification.builder()
-                    .userId(rental.getUserId())
-                    .title("Due Tomorrow")
-                    .message("Your borrowed book is due tomorrow. Please return it on time.")
-                    .type(NotificationType.DUE_TOMORROW)
-                    .read(false)
-                    .build();
-            notificationRepository.save(notification);
+        if (!dueTomorrow.isEmpty()) {
+            List<Notification> dueTomorrowNotifications = dueTomorrow.stream()
+                    .map(rental -> Notification.builder()
+                            .userId(rental.getUserId())
+                            .title("Due Tomorrow")
+                            .message("Your borrowed book (ID: " + rental.getBookId() + ") is due tomorrow. Please return it on time.")
+                            .type(NotificationType.DUE_TOMORROW)
+                            .read(false)
+                            .build())
+                    .collect(Collectors.toList());
+            notificationRepository.saveAll(dueTomorrowNotifications);
         }
 
         log.info("Overdue check completed. Found {} overdue, {} due tomorrow.",

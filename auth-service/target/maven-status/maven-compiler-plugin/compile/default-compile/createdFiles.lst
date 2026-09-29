@@ -9,6 +9,7 @@ com\bibliotech\auth\security\JwtAuthFilter.class
 com\bibliotech\auth\exception\GlobalExceptionHandler.class
 com\bibliotech\auth\dto\RegisterRequest.class
 com\bibliotech\auth\dto\UpdateUserRequest.class
+com\bibliotech\auth\config\AuthDataInitializer.class
 com\bibliotech\auth\service\AuthService.class
 com\bibliotech\auth\entity\UserStatus.class
 com\bibliotech\auth\dto\UserDto$UserDtoBuilder.class

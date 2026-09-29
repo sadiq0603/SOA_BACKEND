@@ -103,10 +103,18 @@ public class AuthService {
             user.setName(request.getName());
         }
         if (request.getRole() != null) {
-            user.setRole(Role.valueOf(request.getRole().toUpperCase()));
+            try {
+                user.setRole(Role.valueOf(request.getRole().toUpperCase()));
+            } catch (IllegalArgumentException e) {
+                throw new IllegalArgumentException("Invalid role: " + request.getRole());
+            }
         }
         if (request.getStatus() != null) {
-            user.setStatus(UserStatus.valueOf(request.getStatus().toUpperCase()));
+            try {
+                user.setStatus(UserStatus.valueOf(request.getStatus().toUpperCase()));
+            } catch (IllegalArgumentException e) {
+                throw new IllegalArgumentException("Invalid status: " + request.getStatus());
+            }
         }
 
         user = userRepository.save(user);

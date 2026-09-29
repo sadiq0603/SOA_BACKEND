@@ -13,7 +13,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigDecimal;
-import java.util.Collections;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -47,7 +46,7 @@ class FineServiceTest {
     void calculate_Success() {
         FineRequest request = new FineRequest(10L, 100L, 50L, 4L);
 
-        when(fineRepository.findAll()).thenReturn(Collections.emptyList());
+        when(fineRepository.findByRentalId(10L)).thenReturn(Optional.empty());
         when(fineRepository.save(any(Fine.class))).thenAnswer(i -> i.getArgument(0));
 
         Fine result = fineService.calculate(request);

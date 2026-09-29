@@ -20,6 +20,7 @@ public class Branch {
 
     private String location;
 
+    @Builder.Default
     @Column(nullable = false)
     private boolean active = true;
 

@@ -130,25 +130,18 @@ public class JwtAuthenticationFilter
              * ========================================================
              */
 
-            ServerHttpRequest modifiedRequest =
-                    request.mutate()
-                            .header(
-                                    "X-User-Id",
-                                    String.valueOf(
-                                            claims.get("userId")
-                                    )
-                            )
-                            .header(
-                                    "X-User-Email",
-                                    claims.getSubject()
-                            )
-                            .header(
-                                    "X-User-Role",
-                                    String.valueOf(
-                                            claims.get("role")
-                                    )
-                            )
-                            .build();
+            ServerHttpRequest.Builder reqBuilder = request.mutate();
+            if (claims.get("userId") != null) {
+                reqBuilder.header("X-User-Id", String.valueOf(claims.get("userId")));
+            }
+            if (claims.getSubject() != null) {
+                reqBuilder.header("X-User-Email", claims.getSubject());
+            }
+            if (claims.get("role") != null) {
+                reqBuilder.header("X-User-Role", String.valueOf(claims.get("role")));
+            }
+
+            ServerHttpRequest modifiedRequest = reqBuilder.build();
 
             return chain.filter(
                     exchange

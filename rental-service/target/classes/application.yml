@@ -19,6 +19,11 @@ spring:
       hibernate:
         format_sql: true
 
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
+
 eureka:
   client:
     service-url:
@@ -30,6 +35,9 @@ eureka:
 jwt:
   secret: bibliotech-super-secret-key-that-is-at-least-256-bits-long-for-hs256
   expiration: 86400000
+
+rental:
+  borrow-duration-days: 14
 
 management:
   endpoints:

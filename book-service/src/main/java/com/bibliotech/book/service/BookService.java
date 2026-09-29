@@ -129,7 +129,9 @@ public class BookService {
         Book book = bookRepository.findById(id)
                 .orElseThrow(() -> new BookNotFoundException("Book not found with id: " + id));
 
-        book.setAvailableCopies(book.getAvailableCopies() + 1);
+        if (book.getAvailableCopies() < book.getTotalCopies()) {
+            book.setAvailableCopies(book.getAvailableCopies() + 1);
+        }
         if (book.getAvailableCopies() > 0) {
             book.setStatus(BookStatus.AVAILABLE);
         }

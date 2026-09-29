@@ -17,13 +17,19 @@ public class NotificationController {
     private final NotificationService notificationService;
 
     @GetMapping
-    public ResponseEntity<List<NotificationResponse>> getNotifications(@RequestParam Long userId) {
-        return ResponseEntity.ok(notificationService.getUserNotifications(userId));
+    public ResponseEntity<List<NotificationResponse>> getNotifications(
+            @RequestParam(required = false) Long userId,
+            @RequestHeader(value = "X-User-Id", required = false) Long headerUserId) {
+        Long effectiveUserId = userId != null ? userId : headerUserId;
+        return ResponseEntity.ok(notificationService.getUserNotifications(effectiveUserId));
     }
 
     @GetMapping("/unread-count")
-    public ResponseEntity<Long> getUnreadCount(@RequestParam Long userId) {
-        return ResponseEntity.ok(notificationService.getUnreadCount(userId));
+    public ResponseEntity<Long> getUnreadCount(
+            @RequestParam(required = false) Long userId,
+            @RequestHeader(value = "X-User-Id", required = false) Long headerUserId) {
+        Long effectiveUserId = userId != null ? userId : headerUserId;
+        return ResponseEntity.ok(notificationService.getUnreadCount(effectiveUserId));
     }
 
     @PutMapping("/{id}/read")
@@ -33,8 +39,11 @@ public class NotificationController {
     }
 
     @PutMapping("/read-all")
-    public ResponseEntity<Void> markAllAsRead(@RequestParam Long userId) {
-        notificationService.markAllAsRead(userId);
+    public ResponseEntity<Void> markAllAsRead(
+            @RequestParam(required = false) Long userId,
+            @RequestHeader(value = "X-User-Id", required = false) Long headerUserId) {
+        Long effectiveUserId = userId != null ? userId : headerUserId;
+        notificationService.markAllAsRead(effectiveUserId);
         return ResponseEntity.ok().build();
     }
 }

@@ -14,12 +14,13 @@ import java.util.Optional;
 public interface BookRepository extends JpaRepository<Book, Long> {
     Optional<Book> findByBookCode(String bookCode);
 
-        @Query("SELECT b FROM Book b WHERE " +
-            "(COALESCE(:search, '') = '' OR LOWER(b.title) LIKE LOWER(CONCAT('%', :search, '%')) " +
-            "OR LOWER(b.author) LIKE LOWER(CONCAT('%', :search, '%')) " +
-            "OR LOWER(b.isbn) LIKE LOWER(CONCAT('%', :search, '%'))) " +
-            "AND (COALESCE(:category, '') = '' OR LOWER(b.category) = LOWER(:category)) " +
-           "AND (:branchId IS NULL OR b.branch.id = :branchId) " +
+    @Query("SELECT b FROM Book b LEFT JOIN b.branch br WHERE " +
+           "(:search IS NULL OR :search = '' OR LOWER(b.title) LIKE LOWER(CONCAT('%', :search, '%')) " +
+           "OR LOWER(b.author) LIKE LOWER(CONCAT('%', :search, '%')) " +
+           "OR LOWER(b.isbn) LIKE LOWER(CONCAT('%', :search, '%')) " +
+           "OR LOWER(b.category) LIKE LOWER(CONCAT('%', :search, '%'))) " +
+           "AND (:category IS NULL OR :category = '' OR LOWER(b.category) = LOWER(:category)) " +
+           "AND (:branchId IS NULL OR (br.id IS NOT NULL AND br.id = :branchId)) " +
            "AND (:available IS NULL OR (:available = true AND b.availableCopies > 0) OR (:available = false AND b.availableCopies = 0))")
     Page<Book> searchBooks(@Param("search") String search,
                            @Param("category") String category,

@@ -5,10 +5,14 @@ import com.bibliotech.rental.dto.BookDto;
 import com.bibliotech.rental.dto.ReservationResponse;
 import com.bibliotech.rental.entity.Reservation;
 import com.bibliotech.rental.entity.ReservationStatus;
+import com.bibliotech.rental.exception.DuplicateRentalException;
+import com.bibliotech.rental.exception.RentalNotFoundException;
+import com.bibliotech.rental.exception.ServiceUnavailableException;
 import com.bibliotech.rental.repository.ReservationRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,12 +26,12 @@ public class ReservationService {
     private final ReservationRepository reservationRepository;
     private final BookServiceClient bookServiceClient;
 
+    @Transactional
     public ReservationResponse createReservation(Long userId, Long bookId) {
-        // Check for duplicate
         boolean exists = reservationRepository.existsByUserIdAndBookIdAndStatusIn(
                 userId, bookId, Arrays.asList(ReservationStatus.WAITING, ReservationStatus.AVAILABLE));
         if (exists) {
-            throw new RuntimeException("You already have an active reservation for this book.");
+            throw new DuplicateRentalException("You already have an active reservation for this book.");
         }
 
         int position = reservationRepository.countByBookIdAndStatus(bookId, ReservationStatus.WAITING) + 1;
@@ -49,11 +53,12 @@ public class ReservationService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public void cancelReservation(Long id, Long userId) {
         Reservation reservation = reservationRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Reservation not found"));
+                .orElseThrow(() -> new RentalNotFoundException("Reservation not found with id: " + id));
         if (!reservation.getUserId().equals(userId)) {
-            throw new RuntimeException("Not authorized to cancel this reservation");
+            throw new ServiceUnavailableException("Not authorized to cancel this reservation.");
         }
         reservation.setStatus(ReservationStatus.CANCELLED);
         reservationRepository.save(reservation);

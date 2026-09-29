@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/fines")
@@ -19,23 +20,47 @@ public class FineController {
     }
 
     @PostMapping("/calculate")
-    public ResponseEntity<?> calculate(@Valid @RequestBody FineRequest request) {
-        if (request.daysLate() <= 0) return ResponseEntity.ok().body(java.util.Map.of("amount", 0, "daysLate", 0));
+    public ResponseEntity<?> calculate(@RequestBody FineRequest request) {
+        if (request.daysLate() <= 0) {
+            return ResponseEntity.ok(Map.of("amount", 0, "daysLate", 0));
+        }
         return ResponseEntity.ok(fineService.calculate(request));
     }
 
+    @GetMapping
+    public ResponseEntity<List<Fine>> getAllFines(
+            @RequestParam(required = false) Long userId,
+            @RequestHeader(value = "X-User-Id", required = false) Long headerUserId) {
+        Long effectiveUserId = (userId != null) ? userId : headerUserId;
+        if (effectiveUserId != null) {
+            return ResponseEntity.ok(fineService.findByUser(effectiveUserId));
+        }
+        return ResponseEntity.ok(fineService.findAll());
+    }
+
+    @GetMapping("/my")
+    public ResponseEntity<List<Fine>> getMyFines(
+            @RequestParam(required = false) Long userId,
+            @RequestHeader(value = "X-User-Id", required = false) Long headerUserId) {
+        Long effectiveUserId = (userId != null) ? userId : headerUserId;
+        if (effectiveUserId != null) {
+            return ResponseEntity.ok(fineService.findByUser(effectiveUserId));
+        }
+        return ResponseEntity.ok(fineService.findAll());
+    }
+
     @GetMapping("/user/{userId}")
-    public List<Fine> findByUser(@PathVariable Long userId) {
-        return fineService.findByUser(userId);
+    public ResponseEntity<List<Fine>> findByUser(@PathVariable Long userId) {
+        return ResponseEntity.ok(fineService.findByUser(userId));
     }
 
     @GetMapping("/{id}")
-    public Fine findById(@PathVariable Long id) {
-        return fineService.findById(id);
+    public ResponseEntity<Fine> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(fineService.findById(id));
     }
 
     @PutMapping("/{id}/pay")
-    public Fine pay(@PathVariable Long id) {
-        return fineService.pay(id);
+    public ResponseEntity<Fine> pay(@PathVariable Long id) {
+        return ResponseEntity.ok(fineService.pay(id));
     }
 }

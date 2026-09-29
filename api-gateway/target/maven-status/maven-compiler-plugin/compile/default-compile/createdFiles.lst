@@ -1,1 +1,2 @@
+com\bibliotech\gateway\filter\JwtAuthenticationFilter.class
 com\bibliotech\gateway\ApiGatewayApplication.class

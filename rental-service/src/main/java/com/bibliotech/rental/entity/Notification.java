@@ -28,6 +28,7 @@ public class Notification {
     @Column(nullable = false)
     private NotificationType type;
 
+    @Builder.Default
     @Column(nullable = false)
     private boolean read = false;
 
