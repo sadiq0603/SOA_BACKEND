@@ -1,0 +1,64 @@
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-10-29T22:01:44.973+05:30  INFO 16372 --- [eureka-server] [           main] c.b.eureka.EurekaServerApplication       : Starting EurekaServerApplication v1.0.0 using Java 25.0.1 with PID 16372 (C:\Users\dudek\OneDrive\Pictures\SOA\backend SOA project Zips\backend SOA project Zips\eureka-server\target\eureka-server-1.0.0.jar started by dudek in C:\Users\dudek\OneDrive\Pictures\SOA\backend SOA project Zips\backend SOA project Zips\eureka-server\target)
+2026-10-29T22:01:44.976+05:30  INFO 16372 --- [eureka-server] [           main] c.b.eureka.EurekaServerApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-10-29T22:01:46.213+05:30  INFO 16372 --- [eureka-server] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d15412a2-dedd-38bc-86c9-0f5a35ebb0de
+2026-10-29T22:01:46.293+05:30  WARN 16372 --- [eureka-server] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-10-29T22:01:46.297+05:30  WARN 16372 --- [eureka-server] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2026-10-29T22:01:46.586+05:30  INFO 16372 --- [eureka-server] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8761 (http)
+2026-10-29T22:01:46.599+05:30  INFO 16372 --- [eureka-server] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-29T22:01:46.599+05:30  INFO 16372 --- [eureka-server] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-10-29T22:01:46.624+05:30  INFO 16372 --- [eureka-server] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-10-29T22:01:46.624+05:30  INFO 16372 --- [eureka-server] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1552 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2026-10-29T22:01:47.617+05:30  INFO 16372 --- [eureka-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2026-10-29T22:01:47.619+05:30  INFO 16372 --- [eureka-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2026-10-29T22:01:47.853+05:30  INFO 16372 --- [eureka-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2026-10-29T22:01:47.854+05:30  INFO 16372 --- [eureka-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2026-10-29T22:01:48.564+05:30  WARN 16372 --- [eureka-server] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-10-29T22:01:48.588+05:30  INFO 16372 --- [eureka-server] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-10-29T22:01:48.604+05:30  INFO 16372 --- [eureka-server] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-10-29T22:01:48.604+05:30  INFO 16372 --- [eureka-server] [           main] com.netflix.discovery.DiscoveryClient    : Client configured to neither register nor query for data.
+2026-10-29T22:01:48.610+05:30  INFO 16372 --- [eureka-server] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1793291508608 with initial instances count: 0
+2026-10-29T22:01:48.640+05:30  INFO 16372 --- [eureka-server] [           main] c.n.eureka.DefaultEurekaServerContext    : Initializing ...
+2026-10-29T22:01:48.642+05:30  INFO 16372 --- [eureka-server] [           main] c.n.eureka.cluster.PeerEurekaNodes       : Adding new peer nodes [http://localhost:8761/eureka/]
+2026-10-29T22:01:48.794+05:30  INFO 16372 --- [eureka-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2026-10-29T22:01:48.794+05:30  INFO 16372 --- [eureka-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2026-10-29T22:01:48.795+05:30  INFO 16372 --- [eureka-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2026-10-29T22:01:48.795+05:30  INFO 16372 --- [eureka-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2026-10-29T22:01:48.923+05:30  INFO 16372 --- [eureka-server] [           main] c.n.eureka.cluster.PeerEurekaNodes       : Replica node URL:  http://localhost:8761/eureka/
+2026-10-29T22:01:48.930+05:30  INFO 16372 --- [eureka-server] [           main] c.n.e.registry.AbstractInstanceRegistry  : Finished initializing remote region registries. All known remote regions: []
+2026-10-29T22:01:48.932+05:30  INFO 16372 --- [eureka-server] [           main] c.n.eureka.DefaultEurekaServerContext    : Initialized
+2026-10-29T22:01:48.940+05:30  INFO 16372 --- [eureka-server] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2026-10-29T22:01:48.988+05:30  INFO 16372 --- [eureka-server] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application EUREKA-SERVER with eureka with status UP
+2026-10-29T22:01:49.018+05:30  INFO 16372 --- [eureka-server] [       Thread-9] o.s.c.n.e.server.EurekaServerBootstrap   : isAws returned false
+2026-10-29T22:01:49.019+05:30  INFO 16372 --- [eureka-server] [       Thread-9] o.s.c.n.e.server.EurekaServerBootstrap   : Initialized server context
+2026-10-29T22:01:49.020+05:30  INFO 16372 --- [eureka-server] [       Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Got 1 instances from neighboring DS node
+2026-10-29T22:01:49.021+05:30  INFO 16372 --- [eureka-server] [       Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Renew threshold is: 1
+2026-10-29T22:01:49.021+05:30  INFO 16372 --- [eureka-server] [       Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Changing status to UP
+2026-10-29T22:01:49.030+05:30  INFO 16372 --- [eureka-server] [       Thread-9] e.s.EurekaServerInitializerConfiguration : Started Eureka Server
+2026-10-29T22:01:49.045+05:30  INFO 16372 --- [eureka-server] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8761 (http) with context path ''
+2026-10-29T22:01:49.046+05:30  INFO 16372 --- [eureka-server] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8761
+2026-10-29T22:01:49.065+05:30  INFO 16372 --- [eureka-server] [           main] c.b.eureka.EurekaServerApplication       : Started EurekaServerApplication in 4.738 seconds (process running for 5.334)
+2026-10-29T22:02:02.726+05:30  INFO 16372 --- [eureka-server] [nio-8761-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-29T22:02:02.726+05:30  INFO 16372 --- [eureka-server] [nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-29T22:02:02.728+05:30  INFO 16372 --- [eureka-server] [nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-10-29T22:02:03.027+05:30  INFO 16372 --- [eureka-server] [nio-8761-exec-2] c.n.e.registry.AbstractInstanceRegistry  : Registered instance AUTH-SERVICE/SADIQ:auth-service:8084 with status UP (replication=false)
+2026-10-29T22:02:03.723+05:30  INFO 16372 --- [eureka-server] [nio-8761-exec-3] c.n.e.registry.AbstractInstanceRegistry  : Registered instance AUTH-SERVICE/SADIQ:auth-service:8084 with status UP (replication=true)
+2026-10-29T22:02:11.828+05:30  INFO 16372 --- [eureka-server] [nio-8761-exec-9] c.n.e.registry.AbstractInstanceRegistry  : Registered instance BOOK-SERVICE/SADIQ:book-service:8081 with status UP (replication=false)
+2026-10-29T22:02:12.347+05:30  INFO 16372 --- [eureka-server] [nio-8761-exec-6] c.n.e.registry.AbstractInstanceRegistry  : Registered instance BOOK-SERVICE/SADIQ:book-service:8081 with status UP (replication=true)
+2026-10-29T22:02:21.289+05:30  INFO 16372 --- [eureka-server] [nio-8761-exec-8] c.n.e.registry.AbstractInstanceRegistry  : Registered instance RENTAL-SERVICE/SADIQ:rental-service:8082 with status UP (replication=false)
+2026-10-29T22:02:21.802+05:30  INFO 16372 --- [eureka-server] [nio-8761-exec-5] c.n.e.registry.AbstractInstanceRegistry  : Registered instance RENTAL-SERVICE/SADIQ:rental-service:8082 with status UP (replication=true)
+2026-10-29T22:02:28.793+05:30  INFO 16372 --- [eureka-server] [nio-8761-exec-1] c.n.e.registry.AbstractInstanceRegistry  : Registered instance FINE-SERVICE/SADIQ:fine-service:8083 with status UP (replication=false)
+2026-10-29T22:02:29.302+05:30  INFO 16372 --- [eureka-server] [nio-8761-exec-2] c.n.e.registry.AbstractInstanceRegistry  : Registered instance FINE-SERVICE/SADIQ:fine-service:8083 with status UP (replication=true)
+2026-10-29T22:02:38.162+05:30  INFO 16372 --- [eureka-server] [nio-8761-exec-4] c.n.e.registry.AbstractInstanceRegistry  : Registered instance API-GATEWAY/SADIQ:api-gateway:8080 with status UP (replication=false)
+2026-10-29T22:02:38.679+05:30  INFO 16372 --- [eureka-server] [nio-8761-exec-8] c.n.e.registry.AbstractInstanceRegistry  : Registered instance API-GATEWAY/SADIQ:api-gateway:8080 with status UP (replication=true)
+2026-10-29T22:02:49.023+05:30  INFO 16372 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
